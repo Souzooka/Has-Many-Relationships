@@ -45,7 +45,9 @@ WHERE users.created_at < '20150101';
 --Query 7
 --Create a query to get the all rows in the comments table, showing post title (aliased as 'Post Title'),
 --  and the all the comment's fields
-
+SELECT posts.title AS "Post Title", comments.*
+FROM posts
+INNER JOIN comments ON posts.id = comments.posts_id;
 
 --Query 8
 --Create a query to get the all rows in the comments table, showing post title (aliased as post_title),
