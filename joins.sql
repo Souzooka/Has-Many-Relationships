@@ -84,7 +84,7 @@ SELECT posts.title AS post_title, users.first_name, comments.body AS comment_bod
 FROM posts
 INNER JOIN users ON posts.users_id = users.id
 INNER JOIN comments ON comments.posts_id = posts.id
-WHERE comments.body LIKE lower('%matrix%');
+WHERE comments.body LIKE '%matrix%';
 
 --Query 12
 --Create a query to get the first name of the author of the comment, last name of the author of the comment,
