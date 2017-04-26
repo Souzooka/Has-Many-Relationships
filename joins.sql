@@ -16,25 +16,31 @@ WHERE users_id = 100;
 --  from the posts table where the user's id is 200
 SELECT posts.*, users.first_name, users.last_name
 FROM posts
-INNER JOIN users ON users.id = 200 AND posts.users_id = users.id;
+INNER JOIN users ON posts.users_id = users.id
+WHERE users.id = 200;
 
 --Query 4
 --Create a query to get all posts fields, and the user's username,
 --  from the posts table where the user's first name is 'Norene' and the user's last_name is 'Schmitt'
 SELECT posts.*, users.username
 FROM posts
-INNER JOIN users ON users.first_name = 'Norene' AND users.last_name = 'Schmitt';
+INNER JOIN users ON users.id = posts.users_id
+WHERE users.first_name = 'Norene' AND users.last_name = 'Schmitt';
 
 --Query 5
 --Create a query to get usernames from the users table where the user has created a post after January 1, 2015
 SELECT DISTINCT username
 FROM users
-INNER JOIN posts ON users.id = posts.id AND posts.created_at > '20150101';
+INNER JOIN posts ON users.id = posts.users_id
+WHERE posts.created_at > '20150101';
 
 --Query 6
 --Create a query to get the post title, post content,
 --  and user's username where the user who created the post joined before January 1, 2015
-
+SELECT posts.title, posts.content, users.username
+FROM users
+INNER JOIN posts ON users.id = posts.users_id
+WHERE users.created_at < '20150101';
 
 --Query 7
 --Create a query to get the all rows in the comments table, showing post title (aliased as 'Post Title'),
