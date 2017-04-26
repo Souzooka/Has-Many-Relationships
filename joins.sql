@@ -115,11 +115,13 @@ WHERE (comments.body LIKE '%SSL%' OR comments.body LIKE '%firewall%') AND posts.
 --Find the post id, post title, and user id of all posts
 --  where the post author commented on his/her own post. ( should have 2 results )
 
-
 --Query 2
 --Count how many comments have been written on posts that have been created after July 14, 2015
 --  ( should have one result, the value of the count should be 25)
-
+SELECT count(*)
+FROM comments
+INNER JOIN posts ON comments.posts_id = posts.id
+WHERE posts.created_at > '20150714';
 
 --Query 3
 --Find all users who comment about 'programming' ( should have 337 results)
