@@ -71,7 +71,10 @@ WHERE posts.created_at > '20150101';
 --Create a query to get the all rows in the comments table, showing post title (aliased as post_title),
 --  post url (ailased as post_url), and the comment body (aliased as comment_body)
 --  where the comment body contains the word 'USB'
-
+SELECT posts.title AS post_title, posts.url AS post_url, comments.body AS comment_body
+FROM posts
+INNER JOIN comments ON posts.id = comments.posts_id
+WHERE comments.body LIKE '%USB%';
 
 --Query 11
 --Create a query to get the post title (aliased as post_title), first name of the author of the post,
