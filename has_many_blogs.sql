@@ -1,10 +1,10 @@
---Create user
-DROP USER IF EXISTS has_many_user;
-CREATE USER has_many_user;
-
 --Create db
 DROP DATABASE IF EXISTS has_many_blogs;
 CREATE DATABASE has_many_blogs;
+
+--Create user
+DROP USER IF EXISTS has_many_user;
+CREATE USER has_many_user;
 
 --change owner
 ALTER DATABASE has_many_blogs OWNER TO has_many_user;
@@ -42,4 +42,6 @@ CREATE TABLE comments (
   users_id INT REFERENCES users,
   posts_id INT REFERENCES posts
 );
+
+\i scripts/blog_data.sql
 
