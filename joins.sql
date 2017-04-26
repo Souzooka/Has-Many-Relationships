@@ -7,7 +7,9 @@ FROM users;
 
 --Query 2
 --Create a query to get all fields from the posts table where the user_id is 100
-
+SELECT *
+FROM posts
+WHERE users_id = 100;
 
 --Query 3
 --Create a query to get all posts fields, the user's first name, and the user's last name,
