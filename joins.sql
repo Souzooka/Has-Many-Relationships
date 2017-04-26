@@ -1,6 +1,9 @@
+\c has_many_blogs
+
 --Query 1
 --Create a query to get all fields from the users table
-
+SELECT *
+FROM users;
 
 --Query 2
 --Create a query to get all fields from the posts table where the user_id is 100
