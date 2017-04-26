@@ -14,7 +14,9 @@ WHERE users_id = 100;
 --Query 3
 --Create a query to get all posts fields, the user's first name, and the user's last name,
 --  from the posts table where the user's id is 200
-
+SELECT posts.*, users.first_name, users.last_name
+FROM posts
+INNER JOIN users ON users.id = 200 AND posts.users_id = users.id;
 
 --Query 4
 --Create a query to get all posts fields, and the user's username,
