@@ -90,7 +90,11 @@ WHERE comments.body LIKE lower('%matrix%');
 --Create a query to get the first name of the author of the comment, last name of the author of the comment,
 --  and comment body (aliased to comment_body),
 --  where the comment body contains the word 'SSL' and the post content contains the word 'dolorum' ( should have 102 results )
-
+SELECT users.first_name, users.last_name, comments.body AS comment_body
+FROM comments
+INNER JOIN posts ON comments.posts_id = posts.id
+INNER JOIN users ON comments.users_id = users.id
+WHERE comments.body LIKE '%SSL%' AND posts.content LIKE '%dolorum%';
 
 --Query 13
 --Create a query to get the first name of the author of the post (aliased to post_author_first_name),
